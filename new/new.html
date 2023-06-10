@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .contain {
+        padding: 50px;
+    }
+    .form {
+        max-width: 1000px;
+        margin: auto;
+        background: #8fe9b0;
+        padding:  50px;
+        border-radius: 5px;
+    }
+    .number {
+        height: 35px;
+        width: 105px;
+        border-radius: 5px;
+        border: none;
+        padding: 0 0 0 20px;
+        font-size: 15px;
+        margin: 0 20px 20px 0;
+        }
+    .btn {
+        transition: all ease 0.5s;
+        width: 130px;
+        height: 40px;
+        border-radius: 20px;
+        background-color: #ee4d2d;
+        border: none;
+        color: white;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    .btn:hover {
+        cursor: pointer;
+        background-color: #fb6445;
+    }
+    .icon {
+        font-size: 20px;
+        color: #ee4d2d;
+        margin: 0 5px 0 20px;
+        display: flex;
+    }
+    .total {
+        display: flex;
+        align-items: center;
+        background: white;
+        border-radius: 5px;
+        height: 50px;
+        margin-bottom: 50px;
+    }
+    .assign__contain {
+        background-color: white;
+        border: 1px solid #aaa;
+        padding: 17px 20px;
+        border-radius: 5px;
+    }
+    .assign {
+        display: flex;
+        align-items: center;
+        }
+    .assigh__child {
+        transition: all 0.4s ease 0s;
+        display: none;
+    }
+    .result1 {
+      background-color: white;
+    }
+    .result {
+        display: flex;
+        align-items: center;
+        background: #a3e7bc;
+        border-radius: 5px;
+        height: 50px;
+        margin-top: 20px;
+    }
+    .icon_number {
+        margin-right: 5px;
+        font-size: 23px;
+        color: #007090;
+    }
+    .icon_number2 {
+        margin-right: 5px;
+        font-size: 25px;
+        color: #007090;
+    }
+    .icon_number3 {
+        margin-right: 5px;
+        font-size: 22px;
+        color: #007090;
+    }
+    .calcul {display: block;width: 100%;justify-content: space-between;font-size: 18px;}
+    .icon__down {
+        font-size: 12px;
+    }
+    .mode:checked ~ .assigh__child {
+        display: block;
+        transition: all 0.4s ease 0s;
+        margin-top: 26px;
+    }
+    .none:checked ~ .assigh__child {
+        display: none;
+    }
+    </style>
+
+    <div class="contain">
+    <div class="form">
+      <input class="number" id="number" type="number" placeholder="Nhập số n">
+      <button class="btn" id="btn">Thêm số</button>
+      <div class="total">
+        <i class="icon fa-solid fa-hand-point-right"></i>
+      <p style="margin:0;"><span class="result1" id="check" style="margin: 0;"></span></p>
+      </div>
+
+      <div class="assign__contain">
+      <label class="assign" for="check__mode">
+        <span class="icon_number iconify" data-icon="tabler:square-1-filled"></span>
+        <span class="calcul"> Tổng các số dương</span>
+            <span class="icon__down iconify" data-icon="formkit:down"></span>
+      </label>
+      <input type="checkbox" hidden class="mode" id="check__mode">
+      <div class="assigh__child">
+        <button class="btn" id="btn2">Tính tổng</button>
+        <div class="result">
+            <i class="icon fa-solid fa-hand-point-right"></i>
+          <p style="margin:0;"><span class="result" id="check2" style="margin: 0;"></span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="assign__contain">
+        <label class="assign" for="check__mode2">
+            <span class="icon_number2 iconify" data-icon="ic:baseline-looks-two"></span>
+          <span class="calcul">Đếm số dương</span>
+              <span class="icon__down iconify" data-icon="formkit:down"></span>
+        </label>
+        <input type="checkbox" hidden class="mode" id="check__mode2">
+        <div class="assigh__child">
+          <button class="btn" id="btn3">Đếm số</button>
+          <div class="result">
+              <i class="icon fa-solid fa-hand-point-right"></i>
+            <p style="margin:0;"><span class="result" id="check3" style="margin: 0;"></span></p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="assign__contain">
+            <label class="assign" for="check__mode3">
+                <span class="icon_number3 iconify" data-icon="icon-park-solid:three-key"></span>
+              <span class="calcul"> Tìm số nhỏ nhất</span>
+                  <span class="icon__down iconify" data-icon="formkit:down"></span>
+            </label>
+            <input type="checkbox" hidden class="mode" id="check__mode3">
+            <div class="assigh__child">
+              <button class="btn" id="btn4">Tìm số nhỏ nhất</button>
+              <div class="result">
+                  <i class="icon fa-solid fa-hand-point-right"></i>
+                <p style="margin:0;"><span class="result" id="check4" style="margin: 0;"></span></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="assign__contain">
+                <label class="assign" for="check__mode4">
+                    <span class="icon_number3 iconify" data-icon="icon-park-solid:four-key"></span>
+                  <span class="calcul">Tìm số dương nhỏ nhất</span>
+                      <span class="icon__down iconify" data-icon="formkit:down"></span>
+                </label>
+                <input type="checkbox" hidden class="mode" id="check__mode4">
+                <div class="assigh__child">
+                  <button class="btn" id="btn5">Tìm số</button>
+                  <div class="result">
+                      <i class="icon fa-solid fa-hand-point-right"></i>
+                    <p style="margin:0;"><span class="result" id="check5" style="margin: 0;"></span></p>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="assign__contain">
+                    <label class="assign" for="check__mode5">
+                        <span class="icon_number3 iconify" data-icon="icon-park-solid:five-key"></span>
+                      <span class="calcul"> Tìm số chẵn cuối cùng</span>
+                          <span class="icon__down iconify" data-icon="formkit:down"></span>
+                    </label>
+                    <input type="checkbox" hidden class="mode" id="check__mode5">
+                    <div class="assigh__child">
+                      <button class="btn" id="btn6">Tìm số chẵn</button>
+                      <div class="result">
+                          <i class="icon fa-solid fa-hand-point-right"></i>
+                        <p style="margin:0;"><span class="result" id="check6" style="margin: 0;"></span></p>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="assign__contain">
+                        <label class="assign" for="check__mode6">
+                            <span class="icon_number3 iconify" data-icon="icon-park-solid:six-key"></span>
+                          <span class="calcul">Đổi chỗ</span>
+                              <span class="icon__down iconify" data-icon="formkit:down"></span>
+                        </label>
+                        <input type="checkbox" hidden class="mode" id="check__mode6">
+                        <div class="assigh__child">
+                          <button class="btn" id="btn">Đổi chỗ</button>
+                          <div class="result">
+                              <i class="icon fa-solid fa-hand-point-right"></i>
+                            <p style="margin:0;"><span class="result" id="check" style="margin: 0;"></span></p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="assign__contain">
+                            <label class="assign" for="check__mode7">
+                                <span class="icon_number3 iconify" data-icon="icon-park-solid:seven-key"></span>
+                              <span class="calcul">Sắp xếp tăng dần</span>
+                                  <span class="icon__down iconify" data-icon="formkit:down"></span>
+                            </label>
+                            <input type="checkbox" hidden class="mode" id="check__mode7">
+                            <div class="assigh__child">
+                              <button class="btn" id="btn8">Sắp xếp</button>
+                              <div class="result">
+                                  <i class="icon fa-solid fa-hand-point-right"></i>
+                                <p style="margin:0;"><span class="result" id="check8" style="margin: 0;"></span></p>
+                                </div>
+                              </div>
+                            </div>
+
+                            
+                            <div class="assign__contain">
+                                <label class="assign" for="check__mode8">
+                                    <span class="icon_number3 iconify" data-icon="icon-park-solid:eight-key"></span>
+                                  <span class="calcul">Sắp xếp tăng dần</span>
+                                      <span class="icon__down iconify" data-icon="formkit:down"></span>>
+                                </label>
+                                <input type="checkbox" hidden class="mode" id="check__mode8">
+                                <div class="assigh__child">
+                                  <button class="btn" id="btn3">Sắp xếp</button>
+                                  <div class="result">
+                                      <i class="icon fa-solid fa-hand-point-right"></i>
+                                    <p style="margin:0;"><span class="result" id="check3" style="margin: 0;"></span></p>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                
+                                <div class="assign__contain">
+                                    <label class="assign" for="check__mode9">
+                                        <span class="icon_number3 iconify" data-icon="icon-park-solid:nine-key"></span>
+                                      <span class="calcul">Tìm số nguyên tố đầu tiên</span>
+                                          <span class="icon__down iconify" data-icon="formkit:down"></span>
+                                    </label>
+                                    <input type="checkbox" hidden class="mode" id="check__mode9">
+                                    <div class="assigh__child">
+                                      <button class="btn" id="btn3">Tìm số nguyên tố</button>
+                                      <div class="result">
+                                          <i class="icon fa-solid fa-hand-point-right"></i>
+                                        <p style="margin:0;"><span class="result" id="check3" style="margin: 0;"></span></p>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    
+                                    <div class="assign__contain">
+                                        <label class="assign" for="check__mode10">
+                                            <span class="icon_number2 iconify" data-icon="mdi:numeric-10-box"></span>
+                                          <span class="calcul">Đếm số nguyên</span>
+                                              <span class="icon__down iconify" data-icon="formkit:down"></span>
+                                        </label>
+                                        <input type="checkbox" hidden class="mode" id="check__mode10">
+                                        <div class="assigh__child">
+                                          <button class="btn" id="btn3">Thêm số</button>
+                                          <div class="result">
+                                              <i class="icon fa-solid fa-hand-point-right"></i>
+                                            <p style="margin:0;"><span class="result" id="check3" style="margin: 0;"></span></p>
+                                            </div>
+                                          </div>
+                                        </div>
+                
+                                        <div class="form">
+                                          <h1>Bài 7: Sắp xếp mảng theo thứ tự tăng dần</h1>
+                                        <input class="number" id="number43" type="number">
+                                        <input class="number" id="number44" type="number">
+                                        <input class="number" id="number45" type="number">
+                                        <input class="number" id="number46" type="number">
+                                        <input class="number" id="number47" type="number">
+                                        <input class="number" id="number48" type="number">
+                                        <button class="btn" id="btn7">Tính</button>
+                                        <div class="total">
+                                          <i class="icon fa-solid fa-hand-point-right"></i>
+                                        <p style="margin:0;"><span class="result2" id="check7" style="margin: 0;"></span></p>
+                                        </div>
+                                        </div>
+
+                                        <div class="form">
+                                          <h1>Bài 10: So sánh số lượng số dương và số lượng số âm xem số nào nhiều hơn.</h1>
+                                        <input class="number" id="number64" type="number">
+                                        <input class="number" id="number65" type="number">
+                                        <input class="number" id="number66" type="number">
+                                        <input class="number" id="number67" type="number">
+                                        <input class="number" id="number68" type="number">
+                                        <input class="number" id="number69" type="number">
+                                        <button class="btn" id="btn10">Tính</button>
+                                        <div class="total">
+                                          <i class="icon fa-solid fa-hand-point-right"></i>
+                                        <p style="margin:0;"><span class="result2" id="check10" style="margin: 0;"></span></p>
+                                        </div>
+                                        </div>
+
+
+
+      <div>
+    </div>
+    </div>
+
+
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
